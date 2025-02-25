@@ -14,14 +14,37 @@
   }
 }
 
-/* Dark mode styles */
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
+
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* Why No Changes to globals.css?
+Tailwind’s dark: variants are compiled into your CSS at build time.
+
+The dark class is dynamically added/removed at runtime, so no custom CSS is needed.
+
+What If You Want Custom Dark Mode Styles?
+If you need custom styles outside of Tailwind’s utilities, you can still use the dark class in globals.css: */
+
+/* globals.css */
+.custom-element {
+  background: white;
+  color: black;
+}
+
+.dark .custom-element {
+  background: black;
+  color: white;
+}
+
+/* Dark mode styles */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
