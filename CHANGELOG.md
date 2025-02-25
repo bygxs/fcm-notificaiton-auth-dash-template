@@ -13,4 +13,8 @@
 - added theme provider and toggle theme button
 
 
+## [0.2.1] - 2025-02-25
+- added types/them.ts
+- updated tailwind.config.ts
+- added state to theme-toggle.ts
 

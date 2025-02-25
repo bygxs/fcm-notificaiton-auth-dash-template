@@ -1,17 +1,34 @@
-// src/components/theme-toggle.tsx
 "use client";
 
-import { useThemeStore } from "./../stores/theme-store";
+import { useThemeStore } from "../stores/theme-store";
+import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useThemeStore();
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure hydration mismatch prevention
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="h-10 w-10 animate-pulse rounded-lg bg-gray-200 dark:bg-gray-800" />
+    );
+  }
 
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800"
+      className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-200 transition-all hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
+      aria-label="Toggle theme"
     >
-      {theme === "light" ? "🌙" : "☀️"}
+      {theme === "light" ? (
+        <span className="text-xl">🌙</span>
+      ) : (
+        <span className="text-xl">☀️</span>
+      )}
     </button>
   );
 }
