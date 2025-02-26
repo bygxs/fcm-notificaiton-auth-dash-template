@@ -1,17 +1,23 @@
-name: Bump Version
+name: Bump Version # Name of the workflow
 
-on:
-  push:
-    branches:
-      - main
+on: # Specifies the event that triggers the workflow
+  push: # Trigger the workflow on push events
+    branches: # Specify which branches to listen for pushes
+      #   - main # Only trigger on pushes to the 'main' branch
+      - dev # Only trigger on pushes to the 'dev' branch
 
-jobs:
-  bump-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-      - run: npm version patch -m "Bump version to %s"
-      - run: git push && git push --tags
+jobs: # Define the jobs that will run in this workflow
+  bump-version: # Name of the job
+    runs-on: ubuntu-latest # Specify the environment to run the job (latest version of Ubuntu)
+
+    steps: # Define the steps to execute in this job
+      - uses: actions/checkout@v2 # Check out the repository code so the workflow can access it
+      - uses: actions/setup-node@v2 # Set up Node.js environment
+        with: # Provide input parameters for the action
+          node-version: "14" # Specify the version of Node.js to use (version 14)
+
+      - run: npm version patch -m "Bump version to %s" # Run a command to bump the version in package.json
+        # This increments the patch version (e.g., from 1.0.0 to 1.0.1) and creates a commit with the message
+
+      - run: git push && git push --tags # Push the changes and tags to the remote repository
+        # This pushes the new version commit and any new tags created by the version bump

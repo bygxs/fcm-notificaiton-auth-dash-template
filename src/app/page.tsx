@@ -110,3 +110,19 @@ export default function Home() {
     </div>
   );
 }
+/* Key Changes
+Removed Custom CSS:
+
+Deleted --background and --foreground variables.
+
+Deleted .custom-element styles.
+
+Used Tailwind’s dark: Variants:
+
+Added bg-white dark:bg-gray-900 to the root div for consistent backgrounds.
+
+Ensured all text and backgrounds use dark: variants for proper contrast.
+
+Fixed Gradient Colors:
+
+Adjusted gradients to be visible in both light and dark modes. */
