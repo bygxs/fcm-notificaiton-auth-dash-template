@@ -3,7 +3,7 @@ import { ThemeToggle } from "@/app/components/theme-toggle";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-white dark:bg-gray-900">
       <main className="flex flex-col gap-12 max-w-4xl w-full">
         {/* Header Section */}
         <div className="flex justify-between items-center">
@@ -31,7 +31,7 @@ export default function Home() {
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
               Core Implementation
             </h3>
-            <div className="space-y-4 text-gray-600 dark:text-gray-400">
+            <div className="space-y-4">
               {[
                 {
                   title: "🛠 State Management",
@@ -53,8 +53,12 @@ export default function Home() {
                   key={index}
                   className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
                 >
-                  <h4 className="font-medium mb-2">{item.title}</h4>
-                  <p>{item.description}</p>
+                  <h4 className="font-medium mb-2 text-gray-900 dark:text-gray-100">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -87,9 +91,11 @@ export default function Home() {
 
         {/* Usage Example */}
         <section className="prose dark:prose-invert max-w-none">
-          <h3 className="text-2xl font-semibold">Get Started</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+            Get Started
+          </h3>
           <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-            <code className="text-sm">
+            <code className="text-sm text-gray-900 dark:text-gray-300">
               npx create-next-app -e
               https://github.com/your-username/iii-dark-mode-nextjs
             </code>
@@ -100,93 +106,6 @@ export default function Home() {
             content while keeping the theming system intact.
           </p>
         </section>
-        {/* Usage Example */}
-        <section className="prose dark:prose-invert max-w-none">
-          <h3 className="text-2xl font-semibold">Why no change global.css</h3>
-          <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-            <code className="text-sm">
-              npx create-next-app -e
-              https://github.com/your-username/iii-dark-mode-nextjs
-            </code>
-          </div>
-          <p className="text-gray-600 dark:text-gray-400">
-            Why No Changes to globals.css? Tailwind’s dark: variants are
-            compiled into your CSS at build time. The dark class is dynamically
-            added/removed at runtime, so no custom CSS is needed. What If You
-            Want Custom Dark Mode Styles? If you need custom styles outside of
-            Tailwind’s utilities, you can still use the dark class in
-            globals.css:
-          </p>
-        </section>
-        <section>
-          <h3 className="text-2xl font-semibold">Why no change global.css</h3>
-          <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-            <pre className="text-sm">
-              <code>
-                {`/* globals.css */
-.custom-element {
-  background: white;
-  color: black;
-}
-
-.dark .custom-element {
-  background: black;
-  color: white;
-}`}
-              </code>
-            </pre>
-          </div>
-          <p className="text-gray-600 dark:text-gray-400">
-            Why No Changes to globals.css? Tailwind’s dark: variants are
-            compiled into your CSS at build time. The dark class is dynamically
-            added/removed at runtime, so no custom CSS is needed. What If You
-            Want Custom Dark Mode Styles? If you need custom styles outside of
-            Tailwind’s utilities, you can still use the dark class in
-            globals.css:
-          </p>
-        </section>
-
-        <section>
-      <h3 className="text-2xl font-semibold">Why no change global.css</h3>
-      <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-        <pre className="text-sm">
-          <code>
-            {`/* globals.css */
-.custom-element {
-  background: white;
-  color: black;
-}
-
-.dark .custom-element {
-  background: black;
-  color: white;
-}`}
-          </code>
-        </pre>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400">
-        
-        Why No Changes to globals.css? Tailwind &apos;s dark: variants are compiled into your CSS at build time.
-        The dark class is dynamically added/removed at runtime, so no custom CSS is needed.
-        What If You Want Custom Dark Mode Styles? If you need custom styles outside of Tailwind &apos;s utilities,
-        you can still use the dark class in globals.css:
-      </p>
-    </section>
-    <section>
-    <h1>Using HTML Character Entities</h1>
-    <p>To display a less than sign, use &lt;.</p>
-    <p>To display a greater than sign, use &gt;.</p>
-    <p>To display an ampersand, use &amp;.</p>
-    <p>To display double quotes, use &quot;.</p>
-    <p>To display single quotes, use &apos;.</p>
-    
-    <h2>Example Code Snippet</h2>
-    <pre>
-        <code>
-            &lt;div&gt;This is a div&lt;/div&gt;
-        </code>
-    </pre>
-      </section>
       </main>
     </div>
   );
