@@ -20,13 +20,14 @@ jobs: # Define the jobs that will run in this workflow
         with: # Provide input parameters for the action
           node-version: "22" # Specify the version of Node.js to use (version 22)
 
+      - name: Configure Git # Step to configure Git user identity
+        run: |
+          git config --global user.email "biniyamyohannes@icloud.com"  # Set your email for commits
+          git config --global user.name "bygxs"                        # Set your name for commits
+
       - name: Bump patch version # Step to bump the patch version
         run: npm version patch -m "Bump version to %s" # Increment the patch version and create a commit
         # This changes the version in package.json (e.g., from 1.0.0 to 1.0.1)
-
-      - name: Bump minor version # Step to bump the minor version (optional)
-        run: npm version minor -m "Bump minor version to %s" # Increment the minor version and create a commit
-        # This changes the version in package.json (e.g., from 1.0.0 to 1.1.0)
 
       - name: Push changes # Step to push the changes to the remote repository
         run: |
