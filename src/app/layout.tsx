@@ -1,5 +1,4 @@
-
-import {ServiceWorkerRegistration} from  "@/app/components/ServiceWorkerRegistration";
+import { ServiceWorkerRegistration } from "@/app/components/ServiceWorkerRegistration";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -26,19 +25,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
- 
-  
-
   return (
     <html lang="en">
-      <head><link rel="manifest" href="/manifest.json" />
+      <head>
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>{children}</ThemeProvider>
         <ServiceWorkerRegistration />
-        <footer className="py-2 fixed bottom-0 left-0 right-0 flex justify-center items-center py-4 bg-gray-800 text-white">
+        <footer className="text-xs fixed bottom-0 left-0 right-0 flex justify-center items-center bg-gray-800 text-white">
           Version: {version}
         </footer>
       </body>
