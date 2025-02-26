@@ -4,23 +4,23 @@ name: Bump Version
 on:
   push:
     branches:
-      - main # Trigger on pushes to the 'main' branch
-      - dev # Trigger on pushes to the 'dev' branch
+      - main  # Trigger on pushes to the 'main' branch
+      - dev   # Trigger on pushes to the 'dev' branch
 
 jobs:
   bump-version:
-    runs-on: ubuntu-latest # Run the job on the latest Ubuntu environment
+    runs-on: ubuntu-latest  # Run the job on the latest Ubuntu environment
 
     steps:
       # Step 1: Check out the repository code
       - name: Checkout code
-        uses: actions/checkout@v2 # Use the checkout action to access the code
+        uses: actions/checkout@v2  # Use the checkout action to access the code
 
       # Step 2: Set up Node.js environment
       - name: Setup Node.js
-        uses: actions/setup-node@v2 # Use the setup-node action
+        uses: actions/setup-node@v2  # Use the setup-node action
         with:
-          node-version: "22" # Specify the version of Node.js to use (version 22)
+          node-version: "22"  # Specify the version of Node.js to use (version 22)
 
       # Step 3: Configure Git user identity
       - name: Configure Git
@@ -48,13 +48,19 @@ jobs:
       # Step 5: Update CHANGELOG.md with the new version and changes
       - name: Update CHANGELOG.md
         run: |
-          # Add the new version to CHANGELOG.md
-          echo "## $(git describe --tags --abbrev=0)" >> CHANGELOG.md
-          # Add the commit messages since the last tag to CHANGELOG.md
-          git log --pretty=format:"- %s" $(git describe --tags --abbrev=0)^..HEAD >> CHANGELOG.md
+          # Check if tags exist
+          if git describe --tags --abbrev=0 > /dev/null 2>&1; then
+            # If tags exist, update CHANGELOG.md with the latest version and changes
+            echo "## $(git describe --tags --abbrev=0)" >> CHANGELOG.md
+            git log --pretty=format:"- %s" $(git describe --tags --abbrev=0)^..HEAD >> CHANGELOG.md
+          else
+            # If no tags exist, initialize CHANGELOG.md with the first version (v1.0.0)
+            echo "## v1.0.0" >> CHANGELOG.md
+            git log --pretty=format:"- %s" >> CHANGELOG.md
+          fi
           # Stage and commit the updated CHANGELOG.md
           git add CHANGELOG.md
-          git commit -m "Update CHANGELOG.md for version $(git describe --tags --abbrev=0)"
+          git commit -m "Update CHANGELOG.md for version $(git describe --tags --abbrev=0 || echo 'v1.0.0')"
 
       # Step 6: Push the changes to the remote repository
       - name: Push changes
