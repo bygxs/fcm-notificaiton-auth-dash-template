@@ -3,21 +3,61 @@ name: Bump Version # Name of the workflow
 on: # Specifies the event that triggers the workflow
   push: # Trigger the workflow on push events
     branches: # Specify which branches to listen for pushes
-      #   - main # Only trigger on pushes to the 'main' branch
-      - dev # Only trigger on pushes to the 'dev' branch
+      - main # Trigger on pushes to the 'main' branch
+      - dev # Trigger on pushes to the 'dev' branch
 
 jobs: # Define the jobs that will run in this workflow
   bump-version: # Name of the job
     runs-on: ubuntu-latest # Specify the environment to run the job (latest version of Ubuntu)
 
     steps: # Define the steps to execute in this job
-      - uses: actions/checkout@v2 # Check out the repository code so the workflow can access it
-      - uses: actions/setup-node@v2 # Set up Node.js environment
+      
+      - name: Checkout code # Step to check out the repository code
+        uses: actions/checkout@v2 # Use the checkout action to access the code
+
+      - name: Setup Node.js # Step to set up the Node.js environment
+        uses: actions/setup-node@v2 # Use the setup-node action
         with: # Provide input parameters for the action
-          node-version: "14" # Specify the version of Node.js to use (version 14)
+          node-version: "22" # Specify the version of Node.js to use (version 22)
 
-      - run: npm version patch -m "Bump version to %s" # Run a command to bump the version in package.json
-        # This increments the patch version (e.g., from 1.0.0 to 1.0.1) and creates a commit with the message
+      - name: Bump patch version # Step to bump the patch version
+        run: npm version patch -m "Bump version to %s" # Increment the patch version and create a commit
+        # This changes the version in package.json (e.g., from 1.0.0 to 1.0.1)
 
-      - run: git push && git push --tags # Push the changes and tags to the remote repository
-        # This pushes the new version commit and any new tags created by the version bump
+      - name: Bump minor version # Step to bump the minor version (optional)
+        run: npm version minor -m "Bump minor version to %s" # Increment the minor version and create a commit
+        # This changes the version in package.json (e.g., from 1.0.0 to 1.1.0)
+
+      - name: Push changes # Step to push the changes to the remote repository
+        run: |
+          git push # Push the new version commit to the remote
+          git push --tags # Push the new version tag to the remote
+          # This ensures that both the commit and the tag are updated in the remote repository
+
+
+# name: Bump Version # Name of the workflow
+# on: # Specifies the event that triggers the workflow
+#   push: # Trigger the workflow on push events
+#     branches: # Specify which branches to listen for pushes
+#       - main # Only trigger on pushes to the 'main' branch
+#       - dev # Only trigger on pushes to the 'dev' branch
+#
+# jobs: # Define the jobs that will run in this workflow
+#   bump-version: # Name of the job
+#     runs-on: ubuntu-latest # Specify the environment to run the job (latest version of Ubuntu)
+#
+#     steps: # Define the steps to execute in this job
+#       
+#       - uses: actions/checkout@v2 # Check out the repository code so the workflow can access it
+#       - uses: actions/setup-node@v2 # Set up Node.js environment
+#         with: # Provide input parameters for the action
+#           node-version: "22" # Specify the version of Node.js to use (version 22)
+#
+#       - run: npm version patch -m "Bump version to %s" # Run a command to bump the version in package.json
+#         # This increments the patch version (e.g., from 1.0.0 to 1.0.1) and creates a commit with the message
+#
+#       - run: npm version minor -m "Bump minor version to %s" # Run a command to bump the minor version
+#         # This increments the minor version (e.g., from 1.0.0 to 1.1.0) and creates a commit with the message
+#
+#       - run: git push && git push --tags # Push the changes and tags to the remote repository
+#         # This pushes the new version commit and any new tags created by the version bump
