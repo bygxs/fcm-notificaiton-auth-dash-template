@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DARK-MODE-TEMPLATE-III",
-  description: "My dark mode template on GitHub to apply to new apps ",
+  title: "AUTH-ONBOARD-DASH-SIGN-OUT-TEMPLATE-I ",
+  description: "User flow template on GitHub to apply to new apps ",
 };
 
 export default function RootLayout({
