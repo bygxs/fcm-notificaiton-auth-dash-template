@@ -1,13 +1,13 @@
 // src/app/auth/page.tsx
 "use client";
 
-import { useState } from "react";/* 
+import { useState } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../lib/firebase"; // Adjust path if necessary
-import { useAuth } from "../../hooks/useAuth"; // Import the custom hook */
+import { useAuth } from "../../hooks/useAuth"; // Import the custom hook 
 import Image from "next/image";
 
 export default function AuthPage() {
@@ -17,7 +17,7 @@ export default function AuthPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
- /*  const { user } = useAuth(); // Use the auth hook
+   const { user } = useAuth(); // Use the auth hook
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ export default function AuthPage() {
     } catch (err: any) {
       setError(err.message || "An error occurred. Please try again.");
     }
-  }; */
+  }; 
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4">
@@ -65,7 +65,7 @@ export default function AuthPage() {
             Phone
           </button>
         </div>
-{/* 
+
         <form onSubmit={handleAuth} className="space-y-4">
           {loginMethod === "email" && (
             <input
@@ -92,7 +92,7 @@ export default function AuthPage() {
           >
             {isSignUp ? "Sign Up" : "Sign In"}
           </button>
-        </form> */}
+        </form> 
 
         <div className="mt-4 text-center">
           <button

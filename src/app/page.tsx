@@ -8,6 +8,7 @@ export default function Home() {
       <main className="flex flex-col gap-12 max-w-4xl w-full">
         {/* Header Section */}
         <div className="flex justify-between items-center">
+  {/* navigation hamburger here perhaps Home,Services,About,Contact,Settings, Sign Out */}
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             User Flow Overview
           </h1>
