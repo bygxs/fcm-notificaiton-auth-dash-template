@@ -9,6 +9,7 @@ import {
 import { auth } from "../../lib/firebase"; // Adjust path if necessary
 import { useAuth } from "../../hooks/useAuth"; // Import the custom hook 
 import Image from "next/image";
+import { ThemeToggle } from "../components/theme-toggle";
 
 export default function AuthPage() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -38,6 +39,9 @@ export default function AuthPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4">
+     
+     <header><ThemeToggle /></header>
+     
       <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">
           {isSignUp ? "Create Account" : "Sign In"}

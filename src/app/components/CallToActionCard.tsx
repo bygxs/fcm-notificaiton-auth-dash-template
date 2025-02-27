@@ -21,7 +21,7 @@ const CallToActionCard = () => {
             href="/auth" /*    href="/components/auth" */
             className="px-6 py-3 border rounded-lg shadow-md border-gray-200 dark:border-gray-700 bg-blue-600 text-white font-semibold  hover:bg-blue-700 transition"
           >
-            Login / Create Account
+            Sign in    |   Create Account
           </Link>
         </div>
       </div>
