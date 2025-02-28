@@ -32,19 +32,19 @@ What If You Want Custom Dark Mode Styles?
 If you need custom styles outside of Tailwind’s utilities, you can still use the dark class in globals.css: */
 
 /* globals.css */
-.custom-element {
+/* .custom-element {
   background: white;
   color: black;
 }
-
-.dark .custom-element {
+ */
+/* .dark .custom-element {
   background: black;
   color: white;
-}
+} */
 
 /* Dark mode styles */
-.dark {
+/* .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-}
+} */
 
