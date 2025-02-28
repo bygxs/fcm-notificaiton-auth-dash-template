@@ -1,6 +1,6 @@
 {
   "name": "dark-mode-template-iii",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "scripts": {
     "version-and-tag": "npm version patch && git push --tags",
