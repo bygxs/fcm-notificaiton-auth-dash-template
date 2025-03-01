@@ -49,10 +49,7 @@ export default function AuthPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-300 dark:bg-gray-900 p-4">
-      {/* Theme Toggle */}
-      <header>
-        <ThemeToggle />
-      </header>
+     
 
       {/* Authentication Form */}
       <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-md">
