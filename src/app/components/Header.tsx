@@ -48,6 +48,11 @@ const Header = () => {
                 Contact
               </Link>
             </li>
+            <li className="relative group">
+              <Link href="/signout" className="block px-4 py-2 text-gray-600 dark:text-gray-300 rounded-lg transition duration-300 ease-in-out bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-lg">
+                Sign Out
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -68,6 +73,11 @@ const Header = () => {
               <li>
                 <Link href="/contact" className="block text-gray-600 dark:text-gray-300 font-bold text-lg transition duration-300 ease-in-out hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg px-4 py-2">
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/signout" className="block text-gray-600 dark:text-gray-300 font-bold text-lg transition duration-300 ease-in-out hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg px-4 py-2">
+                  Sign Out
                 </Link>
               </li>
             </ul>
