@@ -38,7 +38,7 @@ export default function AuthPage() {
   }; 
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-300 dark:bg-gray-900 p-4">
      
      <header><ThemeToggle /></header>
      
