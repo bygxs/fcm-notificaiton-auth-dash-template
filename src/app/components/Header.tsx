@@ -4,9 +4,12 @@ import { useState } from "react";
 import Link from "next/link"; // Import Link from next/link
 import { ThemeToggle } from "./theme-toggle";
 import { version } from "../../../package.json";
+import { useAuth } from "../../hooks/useAuth"; // Import the custom hook
+import SignOutButton from "./SignOutButton"; // Import the SignOutButton
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth(); // Get the current user state
 
   return (
     <header className="sticky text-gray-900 dark:text-gray-100 top-0 z-50 shadow-md py-2 px-4 bg-gradient-to-r from-teal-100 via-red-200 to-blue-300 dark:from-yellow-900 dark:via-green-800 dark:to-gray-700">
@@ -19,7 +22,6 @@ const Header = () => {
 
         {/* Theme Toggle */}
         <ThemeToggle />
-
 
         {/* Hamburger Menu Toggle */}
         <button
@@ -49,11 +51,11 @@ const Header = () => {
                 Contact
               </Link>
             </li>
-            <li className="relative group">
-              <Link href="/signout" className="block px-4 py-2 text-gray-600 dark:text-gray-300 rounded-lg transition duration-300 ease-in-out bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-lg">
-                Sign Out
-              </Link>
-            </li>
+            {user && (
+              <li className="relative group">
+                <SignOutButton />
+              </li>
+            )}
           </ul>
         </nav>
 
@@ -76,11 +78,11 @@ const Header = () => {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link href="/signout" className="block text-gray-600 dark:text-gray-300 font-bold text-lg transition duration-300 ease-in-out hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg px-4 py-2">
-                  Sign Out
-                </Link>
-              </li>
+              {user && (
+                <li>
+                  <SignOutButton />
+                </li>
+              )}
             </ul>
           </div>
         )}

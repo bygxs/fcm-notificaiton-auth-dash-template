@@ -1,20 +1,19 @@
 // hooks/useAuth.ts
 import { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth"; // Import User type
-
-const auth = getAuth(); // Initialize Firebase Auth
+import { onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "../lib/firebase"; // Import initialized auth
 
 interface AuthContextType {
-  user: User | null; // Use Firebase's User type
+  user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 
 export const useAuth = (): AuthContextType => {
-  const [user, setUser] = useState<User | null>(null); // Use Firebase's User type
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser); // TypeScript now recognizes currentUser as User | null
+      setUser(currentUser);
     });
 
     return () => unsubscribe();
