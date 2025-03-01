@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ThemeToggle } from "@/app/components/theme-toggle";
+import  Header from "@/app/components/Header";
 import CallToActionCard from "./components/CallToActionCard";
 
 export default function Home() {
@@ -35,7 +36,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             User Flow Overview
           </h1>
-          <ThemeToggle />
+      {/*     <ThemeToggle /> */}
         </div>
 
         {/* Hero Section */}
