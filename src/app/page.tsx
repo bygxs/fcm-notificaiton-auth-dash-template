@@ -1,42 +1,32 @@
 import Image from "next/image";
 import { ThemeToggle } from "@/app/components/theme-toggle";
-import  Header from "@/app/components/Header";
+import Header from "@/app/components/Header";
 import CallToActionCard from "./components/CallToActionCard";
 
 export default function Home() {
   return (
+    // <div className="bg-gradient-to-r from-purple-400 via-indigo-600 to-blue-700 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
 
-
-    
-
-
-
-  
-  // <div className="bg-gradient-to-r from-purple-400 via-indigo-600 to-blue-700 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-  
     // <div className="bg-gradient-to-r from-blue-300 via-cyan-400 to-teal-500 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
 
-       //   <div className="bg-gradient-to-r from-yellow-200 via-orange-500 to-red-600 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-  
-       // <div className="bg-gradient-to-br from-gray-100 to-white dark:bg-gradient-to-br from-gray-900 to-gray-800 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    //   <div className="bg-gradient-to-r from-yellow-200 via-orange-500 to-red-600 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
 
-       //<div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-gradient-to-r from-teal-400 via-indigo-500 to-purple-600"> 
-   
-      // <div className=" grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-gray-50 dark:bg-gray-800"> 
+    // <div className="bg-gradient-to-br from-gray-100 to-white dark:bg-gradient-to-br from-gray-900 to-gray-800 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
 
+    //<div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-gradient-to-r from-teal-400 via-indigo-500 to-purple-600">
+
+    // <div className=" grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-gray-50 dark:bg-gray-800">
 
     //  <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 dark:bg-gradient-to-r dark:from-yellow-900 dark:via-green-800 dark:to-gray-700">
-  
-    <div className="bg-gradient-to-r from-teal-100 via-red-200 to-blue-300 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 dark:bg-gradient-to-r dark:from-yellow-900 dark:via-green-800 dark:to-gray-700">
- 
 
-   <main className="flex flex-col gap-12 max-w-4xl w-full">
+    <div className="bg-gradient-to-r from-teal-100 via-red-200 to-blue-300 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 dark:bg-gradient-to-r dark:from-yellow-900 dark:via-green-800 dark:to-gray-700">
+      <main className="flex flex-col gap-12 max-w-4xl w-full">
         {/* Header Section */}
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             User Flow Overview
           </h1>
-      {/*     <ThemeToggle /> */}
+          {/*     <ThemeToggle /> */}
         </div>
 
         {/* Hero Section */}

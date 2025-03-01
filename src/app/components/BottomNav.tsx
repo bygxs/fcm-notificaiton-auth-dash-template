@@ -7,9 +7,28 @@ const BottomNav = () => {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 shadow-lg border-t border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto flex justify-around py-2 px-4">
+        {/* Home */}
+        <Link href="/" className="flex flex-col items-center space-y-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-6 h-6 text-gray-600 dark:text-gray-300"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            />
+          </svg>
+          <span className="text-sm text-gray-600 dark:text-gray-300">Home</span>
+        </Link>
+
         {/* Dashboard */}
-        <Link
-          href="/auth"
+        {/*    <Link
+          href="/dashboard"
           className="flex flex-col items-center space-y-1"
         >
           <svg
@@ -23,7 +42,31 @@ const BottomNav = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              d="M3 3h8v8H3V3zm0 10h8v8H3v-8zm10-10h8v8h-8V3zm0 10h8v8h-8v-8z"
+            />
+          </svg>
+          <span className="text-sm text-gray-600 dark:text-gray-300">
+            Dashboard
+          </span>
+        </Link> */}
+
+        {/* Dashboard Icon from Heroicons */}
+        <Link
+          href="/dashboard"
+          className="flex flex-col items-center space-y-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-6 h-6 text-gray-600 dark:text-gray-300"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 3h18v18H3V3zm3 3v12h12V6H6z"
             />
           </svg>
           <span className="text-sm text-gray-600 dark:text-gray-300">
@@ -54,6 +97,7 @@ const BottomNav = () => {
 
         {/* Settings */}
         <Link href="/settings" className="flex flex-col items-center space-y-1">
+        
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -74,6 +118,7 @@ const BottomNav = () => {
               d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
+
           <span className="text-sm text-gray-600 dark:text-gray-300">
             Settings
           </span>
