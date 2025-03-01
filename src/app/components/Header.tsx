@@ -12,7 +12,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo/Branding */}
         <div className="text-xl font-bold">
-          AUTH-ONBO-DASH-SINGOUT-TEMPLATE-I
+          AUTH-ONBO-DASH-FLOW-TEMPLATE-I
         </div>
 
         {/* Theme Toggle */}
