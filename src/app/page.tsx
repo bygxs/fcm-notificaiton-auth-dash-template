@@ -21,19 +21,20 @@ export default function Home() {
 
     <div className="bg-gradient-to-r from-teal-100 via-red-200 to-blue-300 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 dark:bg-gradient-to-r dark:from-yellow-900 dark:via-green-800 dark:to-gray-700">
       <main className="flex flex-col gap-12 max-w-4xl w-full">
+     
         {/* Header Section */}
-        <div className="flex justify-between items-center">
+      {/*   <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             User Flow Overview
           </h1>
-          {/*     <ThemeToggle /> */}
-        </div>
+        </div> */}
 
         {/* Hero Section */}
         <section className="prose dark:prose-invert max-w-none">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-300">
             Importance of User Flow
           </h2>
+          <CallToActionCard />
           <p className="text-lg text-gray-600 dark:text-gray-300">
             A well-defined user flow is essential for guiding users through a
             seamless experience. It ensures that users can easily complete tasks
@@ -41,7 +42,7 @@ export default function Home() {
             and securely signing out. A streamlined user flow improves
             engagement, reduces friction, and boosts user retention.
           </p>
-          <CallToActionCard />
+       
         </section>
 
         {/* User Flow Details */}
