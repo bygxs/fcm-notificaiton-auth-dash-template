@@ -2,11 +2,11 @@ import { ServiceWorkerRegistration } from "@/app/components/ServiceWorkerRegistr
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-//import { version } from "../../package.json";
 import { ThemeProvider } from "@/app/components/theme-provider";
 import { ThemeToggle } from "./components/theme-toggle";
 import Header from "./components/Header";
 import BottomNav from "./components/BottomNav";
+import { AuthProvider } from "@/context/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,13 +39,10 @@ export default function RootLayout({
       >
         {/* Global Header */}
         <Header />
-        <ThemeProvider>{children}</ThemeProvider>
+        <AuthProvider> <ThemeProvider>{children}</ThemeProvider>    </AuthProvider>
         <ServiceWorkerRegistration />
         {/* Bottom Navigation (Visible Only on Mobile) */}
         <BottomNav />
-    {/*     <footer className="text-xs fixed bottom-0 left-0 right-0 flex justify-center items-center bg-gray-800 text-white">
-          Version: {version}
-        </footer> */}
       </body>
     </html>
   );

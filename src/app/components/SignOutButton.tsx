@@ -1,18 +1,23 @@
 // components/SignOutButton.tsx
-"use client"; // Mark this as a client component
 
 import { useRouter } from "next/navigation";
-import { auth } from "../../lib/firebase"; // Adjust path if necessary
-import { useAuth } from "../../hooks/useAuth"; // Import the custom hook
+import { auth } from "../../lib/firebase";
+import { useAuth } from "../../hooks/useAuth";
 
 const SignOutButton = () => {
-  const router = useRouter(); // Initialize the router
-  const { setUser } = useAuth(); // Use the auth hook to clear user state
+  const router = useRouter();
+  const { setUser } = useAuth(); // Get setUser from the auth context
+
+  console.log("setUser in SignOutButton:", setUser); // Debug log
 
   const handleSignOut = async () => {
     try {
       await auth.signOut(); // Sign out the user
-      setUser(null); // Clear the user state in the auth context
+      if (setUser) {
+        setUser(null); // Clear the user state in the auth context
+      } else {
+        console.error("setUser is undefined!");
+      }
       router.push("/auth"); // Redirect to the login page
     } catch (error) {
       console.error("Error signing out:", error);

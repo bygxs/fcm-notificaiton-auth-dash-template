@@ -1,4 +1,5 @@
 // app/dashboard/page.tsx
+
 import ProtectedRoute from "@/app/components/ProtectedRoute";
 
 export default function DashboardPage() {
@@ -11,3 +12,4 @@ export default function DashboardPage() {
     </ProtectedRoute>
   );
 }
+
