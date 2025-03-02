@@ -9,13 +9,16 @@ export async function middleware(request: NextRequest) {
 
   // Check if the user is accessing a protected route (e.g., /dashboard)
   if (pathname.startsWith("/dashboard")) {
+    console.log("Accessing dashboard...");
     try {
       // Get the session token from cookies
       const sessionToken = request.cookies.get("firebase-token")?.value;
 
       if (!sessionToken) {
+        console.log("No token found. Redirecting to /login.");
         // If no token is found, redirect to /login
         return NextResponse.redirect(new URL("/login", request.url));
+        
       }
 
       // Verify the token using Firebase Admin SDK
