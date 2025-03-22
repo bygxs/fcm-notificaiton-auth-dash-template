@@ -7,7 +7,7 @@ import { useAuth } from "@/hooks/useAuth";
 export default function ProfilePage() {
   const { user } = useAuth();
   const [name, setName] = useState(user?.displayName || "");
-  const [bio, setBio] = useState(user?.bio || "");
+  const [bio, setBio] = useState((user as any)?.bio || "");
 
   const handleSave = async () => {
     // Update Firestore with new data
