@@ -7,13 +7,17 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
+.dark {
+  --background-color: #121212; /* Dark mode background */
+  --text-color: #ffffff; /* Dark mode text */
+}
 
 
 body {
@@ -21,6 +25,8 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
 
 
 /* Why No Changes to globals.css?
@@ -32,19 +38,19 @@ What If You Want Custom Dark Mode Styles?
 If you need custom styles outside of Tailwind’s utilities, you can still use the dark class in globals.css: */
 
 /* globals.css */
-.custom-element {
+/* .custom-element {
   background: white;
   color: black;
 }
-
-.dark .custom-element {
+ */
+/* .dark .custom-element {
   background: black;
   color: white;
-}
+} */
 
 /* Dark mode styles */
-.dark {
+/* .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-}
+} */
 
