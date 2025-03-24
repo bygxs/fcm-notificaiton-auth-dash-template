@@ -1,15 +1,17 @@
-// lib/firebase-admin.ts
+// src/lib/firebase-admin.ts
+import { initializeApp, applicationDefault, getApps } from 'firebase-admin/app'; // Import getApps
+import { getAuth } from 'firebase-admin/auth';
 
-import * as admin from "firebase-admin";
-
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    }),
+// Initialize Firebase Admin SDK (only once)
+if (!getApps().length) {
+  initializeApp({
+    credential: applicationDefault(), // Use environment variables for production
   });
 }
 
-export const auth = admin.auth();
+// Export Firebase Admin Auth
+export const adminAuth = getAuth();
+
+
+
+
