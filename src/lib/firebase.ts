@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getMessaging, isSupported } from "firebase/messaging";
+import { getStorage } from "firebase/storage";
 
 // Your Firebase config from environment variables
 const firebaseConfig = {
@@ -18,5 +20,10 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Auth and Firestore
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+
+export const messaging = await isSupported() && getMessaging(app);
+export const storage = getStorage(app);
+
 
 export { auth, db };

@@ -12,6 +12,7 @@ export default function ProfilePage() {
   const handleSave = async () => {
     // Update Firestore with new data
     alert("Profile updated!");
+     
   };
 
   return (

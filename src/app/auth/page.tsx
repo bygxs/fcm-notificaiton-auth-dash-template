@@ -14,6 +14,8 @@ import { ThemeToggle } from "../components/theme-toggle";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { saveMessagingDeviceToken } from '../../lib/messaging';
+
 export default function AuthPage() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [loginMethod, setLoginMethod] = useState<"email" | "phone">("email");
@@ -31,15 +33,27 @@ export default function AuthPage() {
     try {
       if (isSignUp) {
         // Sign up logic
-        await createUserWithEmailAndPassword(auth, email, password);
-        toast.success("Account created successfully!"); // For success
-       // alert("Account created successfully!");
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      toast.success("Account created successfully!"); // For success
+      // alert("Account created successfully!");
+
+      // Get the user's UID
+      const uid = userCredential.user.uid; // Get the UID of the signed-in user
+      await saveMessagingDeviceToken(uid); // Call the function to save the token
+
+
+
         router.push("/profile"); // Redirect to profile page after sign-up
       } else {
         // Sign in logic
-        await signInWithEmailAndPassword(auth, email, password);
-       // alert("Signed in successfully!");
-        router.push("/dashboard"); // Redirect to dashboard page after sign-in
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      // alert("Signed in successfully!");
+      router.push("/dashboard"); // Redirect to dashboard page after sign-in
+
+      // Get the user's UID
+      const uid = userCredential.user.uid; // Get the UID of the signed-in user
+      await saveMessagingDeviceToken(uid); // Call the function to save the token
+
       }
     } catch (err: any) {
       setError(err.message || "An error occurred. Please try again.");

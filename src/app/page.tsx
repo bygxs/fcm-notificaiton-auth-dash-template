@@ -1,9 +1,49 @@
+//"use client"
 import Image from "next/image";
 import { ThemeToggle } from "@/app/components/theme-toggle";
 import Header from "@/app/components/Header";
 import CallToActionCard from "./components/CallToActionCard";
 
+//import { useEffect } from "react";
+
 export default function Home() {
+
+/* "use client"
+import Image from "next/image";
+import { ThemeToggle } from "@/app/components/theme-toggle";
+import Header from "@/app/components/Header";
+import CallToActionCard from "./components/CallToActionCard";
+import { useEffect } from "react";
+
+export default function Home() {
+
+  useEffect(() => {
+    // Register the caching service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then((registration) => {
+          console.log('Caching Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Caching Service Worker registration failed:', error);
+        });
+
+      // Register the Firebase messaging service worker
+      navigator.serviceWorker.register('/firebase.messaging-sw.js')
+        .then((registration) => {
+          console.log('Firebase Messaging Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Firebase Messaging Service Worker registration failed:', error);
+        });
+    }
+  }, []);
+
+
+
+ */
+
+
   return (
     // <div className="bg-gradient-to-r from-purple-400 via-indigo-600 to-blue-700 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
 

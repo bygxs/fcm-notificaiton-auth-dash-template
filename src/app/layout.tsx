@@ -1,4 +1,5 @@
-import { ServiceWorkerRegistration } from "@/app/components/ServiceWorkerRegistration";
+//import { ServiceWorkerRegistration } from "@/app/components/ServiceWorkerRegistration";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -40,7 +41,7 @@ export default function RootLayout({
         {/* Global Header */}
         <Header />
         <AuthProvider> <ThemeProvider>{children}</ThemeProvider>    </AuthProvider>
-        <ServiceWorkerRegistration />
+    {/*    <ServiceWorkerRegistration /> */}
         {/* Bottom Navigation (Visible Only on Mobile) */}
         <BottomNav />
       </body>
